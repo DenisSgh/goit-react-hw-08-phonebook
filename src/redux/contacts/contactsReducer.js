@@ -22,9 +22,11 @@ const isLoading = createReducer(false, {
   [fetchContacts.pending]: () => true,
   [fetchContacts.fulfilled]: () => false,
   [fetchContacts.rejected]: () => false,
+
   [fetchAddContact.pending]: () => true,
   [fetchAddContact.fulfilled]: () => false,
   [fetchAddContact.rejected]: () => false,
+
   [fetchDeleteContact.pending]: () => true,
   [fetchDeleteContact.fulfilled]: () => false,
   [fetchDeleteContact.rejected]: () => false,
