@@ -21,6 +21,7 @@ const Contacts = () => {
     <Section title="Contacts">
       {contacts.length !== 0 ? (
         <ul className={s.list}>
+          <h3 className={s.total}>Total: {contacts.length}</h3>
           {contacts.map(contact => {
             const { id, name, number } = contact;
 
