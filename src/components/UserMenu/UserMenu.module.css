@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  margin-right: 5px;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 3px 8px;
+  font-weight: 500;
+  color: #ffb700;
+  font-size: 24px;
+}
+
+.link:hover {
+  color: #4b5ed7;
+  border-color: #4b5ed7;
+  border-radius: 8px;
+  background-color: #ffb700;
+}
+
+.activeLink {
+  border: 2px solid #ffb700;
+  border-radius: 8px;
+  color: #ffb700;
+}
+
+.activeLink:hover {
+  color: #4b5ed7;
+  border-color: #4b5ed7;
+  border-radius: 8px;
+  background-color: #ffb700;
+}

@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 15px 0 15px;
+  padding: 15px;
+  width: 600px;
+
+  border-bottom: 1px solid #ffb700;
+  border: 2px solid #ffb700;
+  border-radius: 8px;
+  background-color: #4b5ed7;
+}
