@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import DeleteIcon from '@material-ui/icons/Delete';
+// import EditIcon from '@material-ui/icons/Edit';
 import { getVisibleContacts } from 'redux/contacts/contactsSelectors';
 import {
   fetchContacts,
+  // fetchEditContact,
   fetchDeleteContact,
 } from 'redux/contacts/contactsOperations';
 
@@ -18,26 +21,34 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <Section title="Contacts">
+    <Section title="">
       {contacts.length !== 0 ? (
         <ul className={s.list}>
-          <h3 className={s.total}>Total: {contacts.length}</h3>
           {contacts.map(contact => {
             const { id, name, number } = contact;
 
             return (
               <li className={s.item} key={id}>
                 <div className={s.position}>
-                  <span>{name}:</span>
+                  <span className={s.name}>{name}:</span>
                   <span>{number}</span>
                 </div>
-                <button
-                  className={s.button}
-                  type="button"
-                  onClick={() => dispatch(fetchDeleteContact(id))}
-                >
-                  Delete
-                </button>
+                <div>
+                  {/* <button
+                    className={s.button}
+                    type="button"
+                    // onClick={} Здесь будет открываться модалка для редактуры
+                  >
+                    <EditIcon />
+                  </button> */}
+                  <button
+                    className={s.button}
+                    type="button"
+                    onClick={() => dispatch(fetchDeleteContact(id))}
+                  >
+                    <DeleteIcon />
+                  </button>
+                </div>
               </li>
             );
           })}

@@ -1,14 +1,10 @@
-.navigation {
-  border-bottom: 1px solid #4b5ed7;
-}
-
 .link {
   display: inline-block;
   text-decoration: none;
   padding: 3px 8px;
   font-weight: 500;
-  color: #ffb700;
-  font-size: 24px;
+  color: #000;
+  font-size: 20px;
 }
 
 .link:first-child {
@@ -16,21 +12,9 @@
 }
 
 .link:hover {
-  color: #4b5ed7;
-  border-color: #4b5ed7;
-  border-radius: 8px;
-  background-color: #ffb700;
+  border-bottom: 2px solid #000;
 }
 
 .activeLink {
-  border: 2px solid #ffb700;
-  border-radius: 8px;
-  color: #ffb700;
-}
-
-.activeLink:hover {
-  color: #4b5ed7;
-  border-color: #4b5ed7;
-  border-radius: 8px;
-  background-color: #ffb700;
+  border-bottom: 2px solid #000;
 }

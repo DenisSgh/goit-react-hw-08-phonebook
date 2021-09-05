@@ -4,6 +4,7 @@ import {
   fetchContacts,
   fetchAddContact,
   fetchDeleteContact,
+  // fetchEditContact,
   changeFilter,
 } from './contactsOperations';
 
@@ -12,6 +13,9 @@ const items = createReducer([], {
   [fetchAddContact.fulfilled]: (state, { payload }) => [...state, payload],
   [fetchDeleteContact.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
+  // [fetchEditContact.fulfilled]: (state, { payload }) => ({
+  //   console.log(state);
+  // console.log(payload)})
 });
 
 const filter = createReducer('', {

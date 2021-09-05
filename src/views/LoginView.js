@@ -1,3 +1,4 @@
+import { Button, TextField } from '@material-ui/core';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
@@ -36,38 +37,38 @@ export default function LoginView() {
   };
 
   return (
-    <>
+    <div className={s.container}>
       <h2 className={s.title}>Log in</h2>
 
       <form className={s.form} onSubmit={hadleSubmit}>
-        <label className={s.label}>
-          Email
-          <input
-            className={s.input}
-            name="email"
+        <div className={s.inputContainer}>
+          <TextField
             type="email"
+            name="email"
+            label="Email"
             placeholder="Type email"
             value={email}
             onChange={hadleChange}
+            variant="outlined"
           />
-        </label>
+        </div>
 
-        <label className={s.label}>
-          Password
-          <input
-            className={s.input}
-            name="password"
+        <div className={s.inputContainer}>
+          <TextField
             type="password"
+            name="password"
+            label="Password"
             placeholder="Type password"
             value={password}
             onChange={hadleChange}
+            variant="outlined"
           />
-        </label>
+        </div>
 
-        <button type="submit" className={s.button}>
+        <Button type="submit" variant="outlined">
           Login
-        </button>
+        </Button>
       </form>
-    </>
+    </div>
   );
 }

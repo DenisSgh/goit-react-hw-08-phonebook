@@ -39,4 +39,17 @@ export const fetchDeleteContact = createAsyncThunk(
   },
 );
 
+export const fetchEditContact = createAsyncThunk(
+  'contacts/editContact',
+  async ({ id, name, number }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.patch(`/contacts/${id}`, { name, number });
+      console.log(data);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  },
+);
+
 export const changeFilter = createAction('contacts/filter');

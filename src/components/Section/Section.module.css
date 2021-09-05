@@ -12,5 +12,5 @@ section:not(:last-child) {
 .title {
   font-size: 30px;
   margin-bottom: 10px;
-  color: #ffb700;
+  color: #000;
 }

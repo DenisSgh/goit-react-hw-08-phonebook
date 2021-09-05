@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Button, TextField } from '@material-ui/core';
 import shortid from 'shortid';
 
+// import ModalAdd from 'components/ModalAdd';
 import { getContacts } from 'redux/contacts/contactsSelectors';
 import { fetchAddContact } from 'redux/contacts/contactsOperations';
 import Section from 'components/Section';
@@ -13,6 +15,7 @@ const Form = () => {
   const [number, setNumber] = useState('');
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
+  const isButtonDisable = name === '' || number === '';
 
   const handleCreateContact = e => {
     const { name, value } = e.currentTarget;
@@ -37,6 +40,7 @@ const Form = () => {
     }
 
     dispatch(fetchAddContact({ name, number }));
+    // handleClose();
     reset();
   };
 
@@ -49,38 +53,42 @@ const Form = () => {
   const numberId = shortid.generate();
 
   return (
-    <Section title="Phonebook">
+    <Section title="PHONEBOOK" className={s.container}>
+      {/* <ModalAdd> */}
+
       <form className={s.form} onSubmit={handleSubmit}>
-        <label htmlFor={nameId}>
-          Name
-          <input
+        <div className={s.inputContainer}>
+          <TextField
+            id={nameId}
             type="text"
             name="name"
+            label="Name"
             value={name}
             onChange={handleCreateContact}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-            id={nameId}
-            required
+            variant="outlined"
           />
-        </label>
-        <label htmlFor={numberId}>
-          Number
-          <input
-            type="tel"
+        </div>
+
+        <div className={s.inputContainer}>
+          <TextField
+            id={numberId}
+            type="text"
             name="number"
+            label="Number"
             value={number}
             onChange={handleCreateContact}
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
-            id={numberId}
-            required
+            // InputLabelProps={{
+            //   shrink: true,
+            // }}
+            variant="outlined"
           />
-        </label>
-        <button type="submit" className={s.button}>
+        </div>
+
+        <Button type="submit" variant="outlined" disabled={isButtonDisable}>
           Add new contact
-        </button>
+        </Button>
       </form>
+      {/* </ModalAdd> */}
     </Section>
   );
 };
