@@ -9,7 +9,7 @@ import {
 
 import Section from 'components/Section';
 import s from './Contacts.module.css';
-import ModalEdit from 'components/ModalEdit';
+// import ModalEdit from 'components/ModalEdit';
 
 const Contacts = () => {
   const contacts = useSelector(getVisibleContacts);
