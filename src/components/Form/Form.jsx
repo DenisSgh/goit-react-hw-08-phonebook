@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button, TextField } from '@material-ui/core';
 import shortid from 'shortid';
 
 // import ModalAdd from 'components/ModalAdd';
 import { getContacts } from 'redux/contacts/contactsSelectors';
 import { fetchAddContact } from 'redux/contacts/contactsOperations';
+import { CssButton, CssTextField } from 'components/customInputs';
 import Section from 'components/Section';
 
 import s from './Form.module.css';
@@ -58,7 +58,7 @@ const Form = () => {
 
       <form className={s.form} onSubmit={handleSubmit}>
         <div className={s.inputContainer}>
-          <TextField
+          <CssTextField
             id={nameId}
             type="text"
             name="name"
@@ -70,9 +70,9 @@ const Form = () => {
         </div>
 
         <div className={s.inputContainer}>
-          <TextField
+          <CssTextField
             id={numberId}
-            type="text"
+            type="number"
             name="number"
             label="Number"
             value={number}
@@ -84,9 +84,9 @@ const Form = () => {
           />
         </div>
 
-        <Button type="submit" variant="outlined" disabled={isButtonDisable}>
+        <CssButton type="submit" variant="outlined" disabled={isButtonDisable}>
           Add new contact
-        </Button>
+        </CssButton>
       </form>
       {/* </ModalAdd> */}
     </Section>

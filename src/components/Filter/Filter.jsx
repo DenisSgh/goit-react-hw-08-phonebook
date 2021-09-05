@@ -4,8 +4,9 @@ import {
   getFilter,
   getVisibleContacts,
 } from 'redux/contacts/contactsSelectors';
-import { TextField } from '@material-ui/core';
+// import { TextField } from '@material-ui/core';
 import Section from 'components/Section';
+import { CssTextFieldFilter } from 'components/customInputs';
 
 import s from './Filter.module.css';
 
@@ -17,7 +18,7 @@ const Filter = () => {
   return (
     <Section title="CONTACTS">
       <h3 className={s.total}>(Total: {contacts.length})</h3>
-      <TextField
+      <CssTextFieldFilter
         id="filled-basic"
         type="text"
         name="filter"

@@ -1,5 +1,5 @@
+import { CssButton } from 'components/customInputs';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button } from '@material-ui/core';
 import { logOut } from 'redux/auth/authOperations';
 import { getUserName } from 'redux/auth/authSelectors';
 import defaultAvatar from './avatar.jpg';
@@ -13,9 +13,9 @@ export default function UserMenu() {
     <div className={s.container}>
       <img src={defaultAvatar} alt="avatar" width="32" className={s.avatar} />
       <span className={s.text}>Welcome, {name}</span>
-      <Button variant="outlined" onClick={() => dispatch(logOut())}>
+      <CssButton variant="outlined" onClick={() => dispatch(logOut())}>
         Sign out
-      </Button>
+      </CssButton>
     </div>
   );
 }

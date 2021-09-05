@@ -1,7 +1,8 @@
-import { Button, TextField } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
+import { CssTextField } from 'components/customInputs';
 
 import s from './Views.module.css';
 
@@ -47,7 +48,7 @@ export default function RegisterView() {
 
       <form className={s.form} onSubmit={hadleSubmit}>
         <div className={s.inputContainer}>
-          <TextField
+          <CssTextField
             type="text"
             name="name"
             label="Name"
@@ -59,7 +60,7 @@ export default function RegisterView() {
         </div>
 
         <div className={s.inputContainer}>
-          <TextField
+          <CssTextField
             type="email"
             name="email"
             label="Email"
@@ -71,7 +72,7 @@ export default function RegisterView() {
         </div>
 
         <div className={s.inputContainer}>
-          <TextField
+          <CssTextField
             type="password"
             name="password"
             label="Password"
