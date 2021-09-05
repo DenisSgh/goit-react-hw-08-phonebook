@@ -6,6 +6,18 @@ export const CssButton = withStyles({
   },
 })(Button);
 
+export const CssButtonLogOut = withStyles({
+  root: {
+    textTransform: 'none',
+    padding: '5px',
+    minWidth: '40px',
+    '& .MuiButton-label': {
+      content: 'sdas',
+      // color: 'red',
+    },
+  },
+})(Button);
+
 export const CssTextField = withStyles({
   root: {
     '& label.Mui-focused': {
