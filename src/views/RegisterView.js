@@ -1,8 +1,7 @@
-import { Button } from '@material-ui/core';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
-import { CssTextField } from 'components/customInputs';
+import { CssButton, CssTextField } from 'components/customInputs';
 
 import s from './Views.module.css';
 
@@ -83,9 +82,9 @@ export default function RegisterView() {
           />
         </div>
 
-        <Button type="submit" variant="outlined">
+        <CssButton type="submit" variant="outlined">
           Register
-        </Button>
+        </CssButton>
       </form>
     </div>
   );

@@ -10,7 +10,9 @@ export default function HomePage() {
       <h1 className={s.title}>Welcome!</h1>
       {isLoggedIn ? (
         <div className={s.container}>
-          <h2 className={s.subTitle}>You are logged and can use application</h2>
+          <h2 className={s.subTitle}>
+            You are logged and can use the application
+          </h2>
           <Link to="/contacts" className={s.link}>
             Click
           </Link>
