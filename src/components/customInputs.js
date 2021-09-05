@@ -11,10 +11,6 @@ export const CssButtonLogOut = withStyles({
     textTransform: 'none',
     padding: '5px',
     minWidth: '40px',
-    '& .MuiButton-label': {
-      content: 'sdas',
-      // color: 'red',
-    },
   },
 })(Button);
 
@@ -38,6 +34,9 @@ export const CssTextFieldFilter = withStyles({
   root: {
     '& label.Mui-focused': {
       color: '#212121',
+    },
+    '& .MuiFilledInput-input': {
+      width: '250px',
     },
     '& .MuiFilledInput-underline:after': {
       borderBottom: '2px solid #212121',

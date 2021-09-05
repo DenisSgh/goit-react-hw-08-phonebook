@@ -13,9 +13,8 @@ const items = createReducer([], {
   [fetchAddContact.fulfilled]: (state, { payload }) => [...state, payload],
   [fetchDeleteContact.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
-  // [fetchEditContact.fulfilled]: (state, { payload }) => ({
-  //   console.log(state);
-  // console.log(payload)})
+  // [fetchEditContact.fulfilled]: (state, { payload }) =>
+  //   state.filter(({ id }) => id === payload),
 });
 
 const filter = createReducer('', {

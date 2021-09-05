@@ -1,16 +1,15 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import DeleteIcon from '@material-ui/icons/Delete';
-// import EditIcon from '@material-ui/icons/Edit';
 import { getVisibleContacts } from 'redux/contacts/contactsSelectors';
 import {
   fetchContacts,
-  // fetchEditContact,
   fetchDeleteContact,
 } from 'redux/contacts/contactsOperations';
 
 import Section from 'components/Section';
 import s from './Contacts.module.css';
+import ModalEdit from 'components/ModalEdit';
 
 const Contacts = () => {
   const contacts = useSelector(getVisibleContacts);
@@ -22,7 +21,7 @@ const Contacts = () => {
 
   return (
     <Section title="">
-      {contacts.length !== 0 ? (
+      {contacts.length !== 0 && (
         <ul className={s.list}>
           {contacts.map(contact => {
             const { id, name, number } = contact;
@@ -33,14 +32,8 @@ const Contacts = () => {
                   <span className={s.name}>{name}:</span>
                   <span>{number}</span>
                 </div>
-                <div>
-                  {/* <button
-                    className={s.button}
-                    type="button"
-                    // onClick={} Здесь будет открываться модалка для редактуры
-                  >
-                    <EditIcon />
-                  </button> */}
+                <div className={s.container}>
+                  {/* <ModalEdit id={id} action="edit" /> */}
                   <button
                     className={s.button}
                     type="button"
@@ -53,8 +46,6 @@ const Contacts = () => {
             );
           })}
         </ul>
-      ) : (
-        <p className={s.notification}>No contacts found :(</p>
       )}
     </Section>
   );

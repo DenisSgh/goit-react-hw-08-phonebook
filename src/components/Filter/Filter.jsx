@@ -18,25 +18,18 @@ const Filter = () => {
   return (
     <Section title="CONTACTS">
       <h3 className={s.total}>(Total: {contacts.length})</h3>
-      <CssTextFieldFilter
-        id="filled-basic"
-        type="text"
-        name="filter"
-        label="Find"
-        placeholder="by name"
-        value={filter}
-        onChange={e => dispatch(changeFilter(e.currentTarget.value))}
-        variant="filled"
-      />
-      {/* <label className={s.label}>
-        Find contacts by name
-        <input
-          className={s.input}
-          placeholder="Type contact name"
+      {contacts.length !== 0 && (
+        <CssTextFieldFilter
+          id="filled-basic"
+          type="text"
+          name="filter"
+          label="Find"
+          placeholder="by name"
           value={filter}
           onChange={e => dispatch(changeFilter(e.currentTarget.value))}
+          variant="filled"
         />
-      </label> */}
+      )}
     </Section>
   );
 };

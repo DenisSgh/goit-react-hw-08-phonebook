@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Backdrop, Fade } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import { CssButton } from 'components/customInputs';
-import s from './ModalAdd.module.css';
-import Form from 'components/Form/Form';
+import EditIcon from '@material-ui/icons/Edit';
+import s from './ModalEdit.module.css';
+import Form from 'components/Form';
 
-export default function ModalAdd({ action }) {
+export default function ModalEdit({ id, action }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -19,11 +18,10 @@ export default function ModalAdd({ action }) {
   };
 
   return (
-    <div className={s.container}>
-      <CssButton variant="outlined" onClick={handleOpen}>
-        <AddIcon className={s.icon} />
-        Create contact
-      </CssButton>
+    <div>
+      <button className={s.button} type="button" onClick={handleOpen}>
+        <EditIcon />
+      </button>
 
       <Modal
         open={open}
@@ -40,7 +38,7 @@ export default function ModalAdd({ action }) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <Form action={action} actionName="Add new contact" />
+            <Form id={id} action={action} actionName="Edit contact" />
           </div>
         </Fade>
       </Modal>

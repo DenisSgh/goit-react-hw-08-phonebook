@@ -2,15 +2,16 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import shortid from 'shortid';
 
-// import ModalAdd from 'components/ModalAdd';
 import { getContacts } from 'redux/contacts/contactsSelectors';
-import { fetchAddContact } from 'redux/contacts/contactsOperations';
+import {
+  fetchAddContact,
+  fetchEditContact,
+} from 'redux/contacts/contactsOperations';
 import { CssButton, CssTextField } from 'components/customInputs';
-import Section from 'components/Section';
 
 import s from './Form.module.css';
 
-const Form = () => {
+const Form = ({ id, action, actionName }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(getContacts);
@@ -39,8 +40,19 @@ const Form = () => {
       return alert(`${name} is already in the contact list`);
     }
 
-    dispatch(fetchAddContact({ name, number }));
-    // handleClose();
+    switch (action) {
+      case 'add':
+        dispatch(fetchAddContact({ name, number }));
+        break;
+
+      case 'edit':
+        dispatch(fetchEditContact({ id, name, number }));
+        break;
+
+      default:
+        break;
+    }
+
     reset();
   };
 
@@ -53,9 +65,7 @@ const Form = () => {
   const numberId = shortid.generate();
 
   return (
-    <Section title="PHONEBOOK" className={s.container}>
-      {/* <ModalAdd> */}
-
+    <div className={s.container}>
       <form className={s.form} onSubmit={handleSubmit}>
         <div className={s.inputContainer}>
           <CssTextField
@@ -77,19 +87,15 @@ const Form = () => {
             label="Number"
             value={number}
             onChange={handleCreateContact}
-            // InputLabelProps={{
-            //   shrink: true,
-            // }}
             variant="outlined"
           />
         </div>
 
         <CssButton type="submit" variant="outlined" disabled={isButtonDisable}>
-          Add new contact
+          {actionName}
         </CssButton>
       </form>
-      {/* </ModalAdd> */}
-    </Section>
+    </div>
   );
 };
 
