@@ -13,7 +13,9 @@ export default function UserMenu() {
   return (
     <div className={s.container}>
       <img src={defaultAvatar} alt="avatar" width="32" className={s.avatar} />
-      <span className={s.text}>Welcome, {name}</span>
+      <span className={s.text}>
+        Welcome, <span className={s.bold}>{name}</span>
+      </span>
       <CssButtonLogOut variant="outlined" onClick={() => dispatch(logOut())}>
         <ExitToAppIcon className={s.icon} />
         {/* Sign out */}

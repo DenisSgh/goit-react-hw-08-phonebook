@@ -12,6 +12,6 @@
   font-size: 18px;
 }
 
-/* .icon {
-  margin-right: 5px;
-} */
+.bold {
+  font-weight: 700;
+}
