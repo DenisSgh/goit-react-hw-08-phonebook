@@ -62,6 +62,7 @@ export default function LoginView() {
             value={password}
             onChange={hadleChange}
             variant="outlined"
+            title="Password must be 8 symbols long"
           />
         </div>
 
