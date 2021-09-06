@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
 import { CssButton, CssTextField } from 'components/customInputs';
+import { getIsRejected } from 'redux/auth/authSelectors';
+import Notification from 'components/Notification';
 
 import s from './Views.module.css';
 
@@ -9,6 +11,7 @@ export default function RegisterView() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const isRejected = useSelector(getIsRejected);
   const dispatch = useDispatch();
 
   const hadleChange = e => {
@@ -31,6 +34,7 @@ export default function RegisterView() {
 
   const hadleSubmit = e => {
     e.preventDefault();
+
     dispatch(register({ name, email, password }));
     reset();
   };
@@ -43,6 +47,7 @@ export default function RegisterView() {
 
   return (
     <div className={s.container}>
+      {isRejected && <Notification />}
       <h2 className={s.title}>Registration</h2>
 
       <form className={s.form} onSubmit={hadleSubmit}>

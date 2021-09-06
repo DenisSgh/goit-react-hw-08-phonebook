@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
 import { CssButton, CssTextField } from 'components/customInputs';
-
+import Notification from 'components/Notification';
 import s from './Views.module.css';
+import { getIsRejected } from 'redux/auth/authSelectors';
 
 export default function LoginView() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const isRejected = useSelector(getIsRejected);
   const dispatch = useDispatch();
 
   const hadleChange = e => {
@@ -27,7 +29,9 @@ export default function LoginView() {
 
   const hadleSubmit = e => {
     e.preventDefault();
+
     dispatch(logIn({ email, password }));
+
     reset();
   };
 
@@ -38,6 +42,7 @@ export default function LoginView() {
 
   return (
     <div className={s.container}>
+      {isRejected && <Notification />}
       <h2 className={s.title}>Log in</h2>
 
       <form className={s.form} onSubmit={hadleSubmit}>
