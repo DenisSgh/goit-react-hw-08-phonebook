@@ -33,7 +33,12 @@ const Contacts = () => {
                   <span>{number}</span>
                 </div>
                 <div className={s.container}>
-                  <ModalEdit id={id} action="edit" />
+                  <ModalEdit
+                    id={id}
+                    name={name}
+                    number={number}
+                    action="edit"
+                  />
                   <button
                     className={s.button}
                     type="button"

@@ -5,7 +5,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import s from './ModalEdit.module.css';
 import Form from 'components/Form';
 
-export default function ModalEdit({ id, action }) {
+export default function ModalEdit({ id, name, number, action }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -38,7 +38,13 @@ export default function ModalEdit({ id, action }) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <Form id={id} action={action} actionName="Edit contact" />
+            <Form
+              id={id}
+              nameEdit={name}
+              numberEdit={number}
+              action={action}
+              actionName="Edit contact"
+            />
           </div>
         </Fade>
       </Modal>

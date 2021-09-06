@@ -11,9 +11,9 @@ import { CssButton, CssTextField } from 'components/customInputs';
 
 import s from './Form.module.css';
 
-const Form = ({ id, action, actionName }) => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+const Form = ({ id, nameEdit = '', numberEdit = '', action, actionName }) => {
+  const [name, setName] = useState(nameEdit);
+  const [number, setNumber] = useState(numberEdit);
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
   const isButtonDisable = name === '' || number === '';

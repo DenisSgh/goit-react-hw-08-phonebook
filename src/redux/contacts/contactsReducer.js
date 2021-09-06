@@ -13,11 +13,9 @@ const items = createReducer([], {
   [fetchAddContact.fulfilled]: (state, { payload }) => [...state, payload],
   [fetchDeleteContact.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
-  [fetchEditContact.fulfilled]: (state, { payload }) =>
+  [fetchEditContact.fulfilled]: (state, { payload: { id, name, number } }) =>
     state.map(el =>
-      el.id === payload.id
-        ? { ...el, name: payload.name, number: payload.number }
-        : el,
+      el.id === id ? { ...el, name: name, number: number } : el,
     ),
 });
 
