@@ -9,7 +9,7 @@ import {
 
 import Section from 'components/Section';
 import s from './Contacts.module.css';
-// import ModalEdit from 'components/ModalEdit';
+import ModalEdit from 'components/ModalEdit';
 
 const Contacts = () => {
   const contacts = useSelector(getVisibleContacts);
@@ -33,7 +33,7 @@ const Contacts = () => {
                   <span>{number}</span>
                 </div>
                 <div className={s.container}>
-                  {/* <ModalEdit id={id} action="edit" /> */}
+                  <ModalEdit id={id} action="edit" />
                   <button
                     className={s.button}
                     type="button"

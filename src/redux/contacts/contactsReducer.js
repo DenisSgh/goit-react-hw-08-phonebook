@@ -4,7 +4,7 @@ import {
   fetchContacts,
   fetchAddContact,
   fetchDeleteContact,
-  // fetchEditContact,
+  fetchEditContact,
   changeFilter,
 } from './contactsOperations';
 
@@ -13,8 +13,12 @@ const items = createReducer([], {
   [fetchAddContact.fulfilled]: (state, { payload }) => [...state, payload],
   [fetchDeleteContact.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
-  // [fetchEditContact.fulfilled]: (state, { payload }) =>
-  //   state.filter(({ id }) => id === payload),
+  [fetchEditContact.fulfilled]: (state, { payload }) =>
+    state.map(el =>
+      el.id === payload.id
+        ? { ...el, name: payload.name, number: payload.number }
+        : el,
+    ),
 });
 
 const filter = createReducer('', {
